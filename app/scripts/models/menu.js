@@ -3,7 +3,7 @@ var Menu = Backbone.Model.extend({
   defaults: {
     name: "",
     description: "",
-    price: "",
+    price: 0,
     type: "",
   }
 });

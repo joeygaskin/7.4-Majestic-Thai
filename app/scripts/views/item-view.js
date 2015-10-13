@@ -1,5 +1,5 @@
 import MenuCollection from 'models/menu-collection';
-import order from 'models/order';
+import Order from 'models/order';
 
 var MenuItemView = Backbone.View.extend ({
   tagName: 'li',

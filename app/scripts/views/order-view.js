@@ -11,7 +11,7 @@ var OrderView = Backbone.View.extend ({
 
   render: function (){
     this.$el.html(this.template(this.present()));
-    console.log("for the love of God please work");
+    console.log("Order Placed");
     return this;
   },
 
