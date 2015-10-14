@@ -5,23 +5,30 @@ import MenuItemView from 'views/item-view';
 var OrderView = Backbone.View.extend ({
   template: JST['order'],
 
-  initialize: function(){
-    this.listenTo(order, 'change', this.render);
+  initialize: function() {
+
+    this.listenTo(order, 'change remove', this.render);
   },
 
-  render: function (){
+
+  render: function(){
+
     this.$el.html(this.template(this.present()));
-    console.log("Order Placed");
     return this;
+
   },
 
   present: function(){
     return {
-      order: order.get('order').map((i) => {
-        return i.toJSON();
-      })
+      orders: order.get('orders').map((p)=>{
+        return p.toJSON();
+      }),
+      subtotal: order.get('orders').reduce(function(total, current) {
+        return total + Number(current.get('price'));
+      }, 0) / 1000 + ""
     };
   }
-});
 
+
+   });
 export default OrderView;
